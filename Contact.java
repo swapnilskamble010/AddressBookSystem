@@ -25,8 +25,30 @@ public class Contact {
 				break;
 			}
 		}
+		
 		if (!flag) {
 			System.out.println("Invalid input");
+		}
+	}
+	
+	public void deleteContact() {
+		System.out.println("Enter the first name of person to delete contact");
+		String deleteName = sc.next();
+		boolean flag = false;
+
+		for (int i = 0; i < Contactlist.size(); i++) {
+			String name = Contactlist.get(i).getFirstName();
+			if (name.equals(deleteName)) {
+				flag = true;
+				Contactlist.remove(i);
+				System.out.println("Contact get deleted");
+				printContact();
+				break;
+			}
+		}
+		
+		if (!flag) {
+			System.out.println("Name does not exit");
 		}
 	}
 
@@ -64,7 +86,7 @@ public class Contact {
 
 	public void printContact() {
 		System.out.println("Contact Details");
-		System.out.println("Name 	      : " + personInfo.getLastName() + " " + personInfo.getLastName() + "\n"
+		System.out.println("Name 	      : " + personInfo.getFirstName() + " " + personInfo.getLastName() + "\n"
 				+ "Address       : " + personInfo.getAddress() + "\n" + "City          : " + personInfo.getCity() + "\n"
 				+ "State         : " + personInfo.getState() + "\n" + "Zip           : " + personInfo.getZip() + "\n"
 				+ "MobileNumber  : " + personInfo.getPhoneNumber() + "\n" + "EmailId       : " + personInfo.getEmail()
