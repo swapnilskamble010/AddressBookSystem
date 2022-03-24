@@ -11,7 +11,8 @@ public class Main {
 		Contact contact = new Contact();
 		boolean flag = true;
 		while (flag) {
-			System.out.println("Enter \n1. To add The contact \n2. To edit the Contact \n3. To delete the Contact\n0. To exit");
+			System.out.println("Enter \n1. To Add the Contact \n2. To Edit the Contact"
+					+ " \n3. To Delete the Contact\4. To Display the Contacts\n0. To exit");
 			int choice = sc.nextInt();
 			switch (choice) {
 			case 1:
@@ -24,6 +25,10 @@ public class Main {
 				
 			case 3:
 				contact.deleteContact();
+				break;
+				
+			case 4:
+				contact.displayContact();
 				break;
 				
 			case 0:

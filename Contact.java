@@ -9,7 +9,11 @@ public class Contact {
 	PersonInformation personInfo = new PersonInformation(null, null, null, null, null, null, null, null);
 
 	public void addContact() {
-		createContact();
+		System.out.println("Enter Number of contacts to be added");
+		int n = sc.nextInt();
+		for (int i = 0; i < n; i++) {
+			createContact();
+		}
 	}
 	
 	public void editContact() {
@@ -41,8 +45,8 @@ public class Contact {
 			if (name.equals(deleteName)) {
 				flag = true;
 				Contactlist.remove(i);
-				System.out.println("Contact get deleted");
 				printContact();
+				System.out.println("Contact get deleted");
 				break;
 			}
 		}
@@ -52,6 +56,18 @@ public class Contact {
 		}
 	}
 
+	public void displayContact() {
+		int i = 1;
+		if (Contactlist.size() != 0) {
+			for (PersonInformation contactlist : Contactlist) {
+				System.out.println(i + " " + contactlist);
+				i++;
+			}
+		} else {
+			System.out.println("No data to display");
+		}
+	}
+	
 	public void createContact() {
 
 		System.out.println("Enter First Name : ");
