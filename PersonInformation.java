@@ -14,7 +14,7 @@ public class PersonInformation {
         this.address = address;
         this.city = city;
         this.state = state;
-        this.zip = zip;
+        this.zip = zipCode;
         this.phoneNumber = mobileNumber;
         this.email = emailId;
     }

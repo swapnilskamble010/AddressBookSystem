@@ -14,13 +14,18 @@ public class MultipleAddressBook {
 		if (contactService.containsKey(bookName)) {
 			System.out.println("Address book with this name exists, Enter new name.");
 			addAddressBook();
-		} else {
+		} 
+		else {
 			Contact contact = new Contact();
 			contactService.put(bookName, contact);
-			System.out.println("press 1 if you want to add another book.");
-			int newBook = scanner.nextInt();
-			if (newBook == 1) {
-				addAddressBook();
+			System.out.println("press 1 if you want to add another book. otherwise press any number!");
+			boolean flag = true;
+			while(flag) {
+				if(scanner.nextInt() == 1) {
+					addAddressBook();
+					flag = false;
+				}
+			break;
 			}
 		}
 	}
@@ -56,6 +61,7 @@ public class MultipleAddressBook {
 		String bookName = scanner.next();
 		if (contactService.containsKey(bookName)) {
 			contactService.remove(bookName);
+			System.out.println("AddressBook Deleted.");
 		} else {
 			System.out.println("AddressBook doesn't exist!!");
 			deleteAddressBook();
@@ -85,10 +91,9 @@ public class MultipleAddressBook {
 		int countContact = 1;
 		for (Map.Entry<String, Contact> entry : contactService.entrySet()) {
 			System.out.println("The contacts in the Book of < " + entry.getKey() + " > are!...");
-			System.out.println(countContact + " " + entry.getValue().contactDetailsList);
-			countContact++;
+			System.out.println(countContact + " " + entry.getValue().contactList + "\n");
+			System.out.println("Contacts are not available");
+			countContact++;								
 		}
-		System.out.println(" ");
 	}
-
 }
